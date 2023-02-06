@@ -9,9 +9,10 @@ import Foundation
 
 final class PlayerModel {
     
-    private let attack = 10
-    private let shield = 20
-    private var health = [0...30]
-    private var damage = [1...6]
+    let name = "Player"
+    let attack = 17
+    let shield = 10
+    var health = 24
+    var damage = [1...6]
     
 }

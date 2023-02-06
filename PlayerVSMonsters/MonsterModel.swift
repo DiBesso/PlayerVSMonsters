@@ -9,9 +9,10 @@ import Foundation
 
 final class MonsterModel {
     
-    private let attack = 15
-    private let shield = 20
-    private var health = [0...25]
-    private var damage = [1...6]
+    let name = "Monster"
+    let attack = 20
+    let shield = 12
+    var health = 30
+    var damage = [1...6]
     
 }

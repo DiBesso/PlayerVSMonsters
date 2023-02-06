@@ -16,6 +16,7 @@
 		A4879C84299141D900477779 /* EntityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4879C83299141D900477779 /* EntityModel.swift */; };
 		A4879C862991458D00477779 /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4879C852991458D00477779 /* PlayerModel.swift */; };
 		A4879C882991497700477779 /* MonsterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4879C872991497700477779 /* MonsterModel.swift */; };
+		A4879C8A29915A0C00477779 /* FightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4879C8929915A0C00477779 /* FightViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		A4879C83299141D900477779 /* EntityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityModel.swift; sourceTree = "<group>"; };
 		A4879C852991458D00477779 /* PlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
 		A4879C872991497700477779 /* MonsterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterModel.swift; sourceTree = "<group>"; };
+		A4879C8929915A0C00477779 /* FightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				A4879C83299141D900477779 /* EntityModel.swift */,
 				A4879C852991458D00477779 /* PlayerModel.swift */,
 				A4879C872991497700477779 /* MonsterModel.swift */,
+				A4879C8929915A0C00477779 /* FightViewController.swift */,
 				A4879C752991412600477779 /* Main.storyboard */,
 				A4879C782991412700477779 /* Assets.xcassets */,
 				A4879C7A2991412700477779 /* LaunchScreen.storyboard */,
@@ -149,6 +152,7 @@
 			files = (
 				A4879C882991497700477779 /* MonsterModel.swift in Sources */,
 				A4879C862991458D00477779 /* PlayerModel.swift in Sources */,
+				A4879C8A29915A0C00477779 /* FightViewController.swift in Sources */,
 				A4879C742991412600477779 /* PlayerViewController.swift in Sources */,
 				A4879C702991412600477779 /* AppDelegate.swift in Sources */,
 				A4879C84299141D900477779 /* EntityModel.swift in Sources */,

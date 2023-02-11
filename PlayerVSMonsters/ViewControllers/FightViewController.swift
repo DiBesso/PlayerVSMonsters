@@ -68,8 +68,8 @@ class FightViewController: UIViewController {
     private func setButtons() {
         healingButton.titleLabel?.text = "Healing"
         healingButton.isHidden = true
-        var health = player.health
-        var halfHealth = health / 2
+        let health = player.health
+        let halfHealth = health / 2
         if health <= halfHealth {
             healingButton.isHidden = false
         }
@@ -77,10 +77,10 @@ class FightViewController: UIViewController {
     
     
     @IBAction func healingButtonAction(_ sender: Any) {
-        var n = 0
+        let n = 0
         if n < 3 {
             var health = player.health
-            var halfHealth = health / 2
+            let halfHealth = health / 2
             health = health + halfHealth
         }
 

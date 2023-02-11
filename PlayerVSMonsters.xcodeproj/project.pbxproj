@@ -17,6 +17,7 @@
 		A4879C862991458D00477779 /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4879C852991458D00477779 /* PlayerModel.swift */; };
 		A4879C882991497700477779 /* MonsterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4879C872991497700477779 /* MonsterModel.swift */; };
 		A4879C8A29915A0C00477779 /* FightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4879C8929915A0C00477779 /* FightViewController.swift */; };
+		A4879C8C2997F5AB00477779 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4879C8B2997F5AB00477779 /* StartViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		A4879C852991458D00477779 /* PlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
 		A4879C872991497700477779 /* MonsterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterModel.swift; sourceTree = "<group>"; };
 		A4879C8929915A0C00477779 /* FightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightViewController.swift; sourceTree = "<group>"; };
+		A4879C8B2997F5AB00477779 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,17 +68,34 @@
 			children = (
 				A4879C6F2991412600477779 /* AppDelegate.swift */,
 				A4879C712991412600477779 /* SceneDelegate.swift */,
-				A4879C732991412600477779 /* PlayerViewController.swift */,
-				A4879C83299141D900477779 /* EntityModel.swift */,
-				A4879C852991458D00477779 /* PlayerModel.swift */,
-				A4879C872991497700477779 /* MonsterModel.swift */,
-				A4879C8929915A0C00477779 /* FightViewController.swift */,
+				A4879C8E2997F5DB00477779 /* ViewControllers */,
+				A4879C8D2997F5C000477779 /* Models */,
 				A4879C752991412600477779 /* Main.storyboard */,
 				A4879C782991412700477779 /* Assets.xcassets */,
 				A4879C7A2991412700477779 /* LaunchScreen.storyboard */,
 				A4879C7D2991412700477779 /* Info.plist */,
 			);
 			path = PlayerVSMonsters;
+			sourceTree = "<group>";
+		};
+		A4879C8D2997F5C000477779 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A4879C83299141D900477779 /* EntityModel.swift */,
+				A4879C852991458D00477779 /* PlayerModel.swift */,
+				A4879C872991497700477779 /* MonsterModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A4879C8E2997F5DB00477779 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A4879C732991412600477779 /* PlayerViewController.swift */,
+				A4879C8929915A0C00477779 /* FightViewController.swift */,
+				A4879C8B2997F5AB00477779 /* StartViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4879C882991497700477779 /* MonsterModel.swift in Sources */,
+				A4879C8C2997F5AB00477779 /* StartViewController.swift in Sources */,
 				A4879C862991458D00477779 /* PlayerModel.swift in Sources */,
 				A4879C8A29915A0C00477779 /* FightViewController.swift in Sources */,
 				A4879C742991412600477779 /* PlayerViewController.swift in Sources */,

@@ -10,9 +10,9 @@ import Foundation
 final class MonsterModel {
     
     let name = "Monster"
-    let attack = 20
-    let shield = 12
-    var health = 30
+    let attack = Int.random(in: 1...20)
+    let shield = Int.random(in: 1...20)
+    var health = Int.random(in: 1...30)
     var damage = [1...6]
     
 }

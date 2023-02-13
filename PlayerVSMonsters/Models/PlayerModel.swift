@@ -10,9 +10,9 @@ import Foundation
 final class PlayerModel {
     
     let name = "Player"
-    let attack = 17
-    let shield = 10
-    var health = 24
+    let attack = Int.random(in: 1...20)
+    let shield = Int.random(in: 1...20)
+    var health = Int.random(in: 1...30)
     var damage = [1...6]
     
 }

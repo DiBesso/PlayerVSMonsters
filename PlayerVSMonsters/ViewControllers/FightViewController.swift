@@ -44,6 +44,7 @@ class FightViewController: UIViewController {
     // MARK: - SetLabels
     
     private func setPlayerLabels() {
+        
         playerNameLabel.text = String(player.name)
         playerAttackLabel.text = String(player.attack)
         playerShieldLabel.text = String(player.shield)
@@ -90,3 +91,5 @@ class FightViewController: UIViewController {
 
     }
 }
+
+

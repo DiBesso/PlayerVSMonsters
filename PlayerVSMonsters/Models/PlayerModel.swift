@@ -13,6 +13,6 @@ final class PlayerModel {
     let attack = Int.random(in: 1...20)
     let shield = Int.random(in: 1...20)
     var health = Int.random(in: 1...30)
-    var damage = [1...6]
+    var damage = Int.random(in: 1...6)
     
 }

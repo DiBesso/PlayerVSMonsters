@@ -11,7 +11,7 @@
         <!--Fight View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="FightViewController" customModule="PlayerVSMonsters" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FightViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="FightViewController" customModule="PlayerVSMonsters" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -181,10 +181,10 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0T-34-Ivm">
                                 <rect key="frame" x="32" y="683.66666666666663" width="329" height="34.333333333333371"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Старт"/>
                                 <connections>
                                     <action selector="startGameAction:" destination="R2M-eU-qkd" eventType="touchUpInside" id="mmj-iw-KaG"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="YkL-pl-GAJ"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="startToFightSegue" id="YkL-pl-GAJ"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rZf-LY-xqA">

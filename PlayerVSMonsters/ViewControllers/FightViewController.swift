@@ -25,11 +25,13 @@ class FightViewController: UIViewController {
     @IBOutlet weak var healingButton: UIButton!
     @IBOutlet weak var gameButton: UIButton!
     @IBOutlet weak var rollResultLabel: UILabel!
+    var playerName = ""
     
     // MARK: - Private properties
     
     private var player = PlayerModel()
     private var monster = MonsterModel()
+
 
     // MARK: - View
     
@@ -38,14 +40,14 @@ class FightViewController: UIViewController {
         setPlayerLabels()
         setMonsterLabels()
         setCollectiveLabels()
-        setButtons()
+        setHealingButton()
     }
     
-    // MARK: - SetLabels
+    // MARK: - Setting Labels
     
     private func setPlayerLabels() {
         
-        playerNameLabel.text = String(player.name)
+        playerNameLabel.text = playerName
         playerAttackLabel.text = String(player.attack)
         playerShieldLabel.text = String(player.shield)
         playerHealthLabel.text = String(player.health)
@@ -64,9 +66,9 @@ class FightViewController: UIViewController {
         healthLabel.text = "Health"
     }
     
-    // MARK: - SetButtons
+    // MARK: - Setting Buttons
     
-    private func setButtons() {
+    private func setHealingButton() {
         healingButton.titleLabel?.text = "Healing"
         healingButton.isHidden = true
         let health = player.health
@@ -76,19 +78,49 @@ class FightViewController: UIViewController {
         }
     }
     
+    private func setGameButton() {
+        gameButton.titleLabel?.text = "Fight"
+    }
     
     @IBAction func healingButtonAction(_ sender: Any) {
-        let n = 0
-        if n < 3 {
+        var n = 0
+        while n < 3 {
             var health = player.health
             let halfHealth = health / 2
             health = health + halfHealth
+            player.health = health
+            n += 1
         }
 
     }
     
     @IBAction func gameButtonAction(_ sender: Any) {
-
+gameLogic()
+    }
+    
+    // MARK: - Game logic setting
+    
+    private func gameLogic() {
+        
+        var modifier = player.attack - monster.attack + 1
+        
+        if modifier > 0 {
+            let array = [1...modifier]
+            for _ in array {
+                let cube = Int.random(in: 1...6)
+                if cube > 4 {
+                    player.health = player.health - player.damage
+                    playerHealthLabel.text = String(player.health)
+                }
+            }
+        } else {
+            modifier = 1
+            let cube = Int.random(in: 1...6)
+            if cube > 4 {
+                player.health = player.health - player.damage
+                playerHealthLabel.text = String(player.health)
+            }
+        }
     }
 }
 

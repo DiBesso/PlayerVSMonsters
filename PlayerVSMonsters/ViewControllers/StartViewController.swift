@@ -18,31 +18,52 @@ class StartViewController: UIViewController {
     @IBOutlet weak var startGameButton: UIButton!
     @IBOutlet weak var playerNameTextField: UITextField!
     
-    // MARK: - Private properties
-     let minValue = 1
-     let maxValue = 10
-     lazy var valuesRange = minValue...maxValue
+
     // MARK: - Views
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
+        playerNameTextField.delegate = self
         setNavigation()
-        setTextField()
+        setPlayerNameTextField()
+        setPlayerNameLabel()
+        setStartButton()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "startToFightSegue" else { return }
+        guard let destination = segue.destination as? FightViewController else { return }
+        
+        destination.playerName = playerNameTextField.text ?? "Игрок"
+
     }
     
     // MARK: - Navigation
     
-    func setNavigation () {
-        navigationItem.title = "Создание персонажа"
+    private func setNavigation () {
+        navigationItem.title = "Player creation"
     }
     
-    // MARK: - TextField
+    // MARK: - Setting label
     
-    func setTextField() {
-        playerNameTextField.placeholder = "Введите имя игрока"
+    private func setPlayerNameLabel () {
+        playerNameLabel.text = "Create a player"
     }
+    
+    // MARK: - Setting TextField
+    
+    private func setPlayerNameTextField() {
+        playerNameTextField.placeholder = "Enter player name"
+    }
+    
+    // MARK: - Setting button
+    
+    private func setStartButton() {
+        startGameButton.titleLabel?.text = "Start"
+    }
+    
     @IBAction func startGameAction(_ sender: Any) {
     }
     
@@ -57,14 +78,14 @@ extension StartViewController: UITextFieldDelegate {
         view.endEditing(true)
     }
     
-         func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-             
-             if range.length + range.location > playerNameTextField.text?.count ?? 1 {
-                 return false
-             }
-             let newText = (playerNameTextField.text?.count)! + string.count - range.length
-             
-             return newText <= 10
-           }
-    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        let currentText = textField.text ?? ""
+        
+        guard let stringRange = Range(range, in: currentText) else { return false }
+        
+        let newText = currentText.replacingCharacters(in: stringRange, with: string)
+        
+        return newText.count <= 15
+    }
 }

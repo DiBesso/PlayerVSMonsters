@@ -22,7 +22,7 @@ class StartViewController: UIViewController {
     
     var playerName = ""
     
-
+    
     // MARK: - Views
     
     override func viewDidLoad() {

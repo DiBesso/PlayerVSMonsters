@@ -108,9 +108,9 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xrl-hR-bxc">
-                                <rect key="frame" x="16" y="314" width="75" height="34.333333333333314"/>
+                                <rect key="frame" x="16" y="314" width="87" height="34.333333333333314"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Healing"/>
                                 <connections>
                                     <action selector="healingButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zob-G7-s2g"/>
                                 </connections>
@@ -183,7 +183,7 @@
                             <constraint firstItem="GKH-nd-h8D" firstAttribute="top" secondItem="PKR-Kb-VM4" secondAttribute="bottom" constant="50" id="pRQ-5T-rsz"/>
                             <constraint firstItem="cuW-cH-rwe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="rKx-Zd-fzA"/>
                             <constraint firstItem="PKR-Kb-VM4" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="t8N-pf-klK"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Xrl-hR-bxc" secondAttribute="trailing" constant="302" id="uYl-it-JVk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Xrl-hR-bxc" secondAttribute="trailing" constant="290" id="uYl-it-JVk"/>
                             <constraint firstItem="rkO-CW-isM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zTU-9t-Zns"/>
                         </constraints>
                     </view>

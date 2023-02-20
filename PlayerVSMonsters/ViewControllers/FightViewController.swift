@@ -49,6 +49,7 @@ class FightViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setPlayerLabels()
         setMonsterLabels()
         setCollectiveLabels()
@@ -96,12 +97,16 @@ class FightViewController: UIViewController {
     }
     
     @IBAction func healingButtonAction(_ sender: Any) {
-        if numberOfHealing < 3 {
+        numberOfHealing += 1
+        switch numberOfHealing {
+        case 1:
             healing()
-        } else {
+        case 2:
+            healing()
+        default:
+            healing()
             healingButton.isHidden = true
         }
-        numberOfHealing += 1
     }
     
     @IBAction func restartButtonAction(_ sender: Any) {
@@ -113,11 +118,11 @@ class FightViewController: UIViewController {
     }
     
     @IBAction func gameButtonAction(_ sender: Any) {
-            playerAttack()
+        playerAttack()
     }
     
     @IBAction func monsterAttackAction(_ sender: Any) {
-            monsterAttack()
+        monsterAttack()
     }
     
     private func setGameButton() {
@@ -129,7 +134,7 @@ class FightViewController: UIViewController {
     
     private func playerAttack() {
         
-        if health > 0 {
+        if health > 0 && monster.health > 0 {
             
             var modifier = player.attack - monster.shield + 1
             
@@ -149,9 +154,10 @@ class FightViewController: UIViewController {
                             gameButton.isHidden = true
                             monsterAttackButton.isHidden = true
                             restartButton.isHidden = false
+                        } else {
+                            gameButton.isHidden = true
+                            monsterAttackButton.isHidden = false
                         }
-                        gameButton.isHidden = true
-                        monsterAttackButton.isHidden = false
                     } else {
                         moveResultLabel.isHidden = false
                         moveResultLabel.text = "Failed attack!"
@@ -187,6 +193,7 @@ class FightViewController: UIViewController {
             }
         } else {
             gameButton.isHidden = true
+            monsterAttackButton.isHidden = true
         }
     }
     
@@ -195,7 +202,8 @@ class FightViewController: UIViewController {
     
     private func monsterAttack() {
         
-        if monster.health > 0 {
+        
+        if monster.health > 0 && health > 0 {
             
             var modifier = monster.attack - player.shield + 1
             
@@ -210,7 +218,7 @@ class FightViewController: UIViewController {
                         playerHealthLabel.text = String(health)
                         moveResultLabel.isHidden = false
                         moveResultLabel.text = "Monster attacked! Damage \(monster.damage)"
-                        if player.health <= 0 {
+                        if health <= 0 {
                             moveResultLabel.text = "Monster win!!!"
                             gameButton.isHidden = true
                             monsterAttackButton.isHidden = true
@@ -241,9 +249,10 @@ class FightViewController: UIViewController {
                         gameButton.isHidden = true
                         monsterAttackButton.isHidden = true
                         restartButton.isHidden = false
+                    } else {
+                        monsterAttackButton.isHidden = true
+                        gameButton.isHidden = false
                     }
-                    monsterAttackButton.isHidden = true
-                    gameButton.isHidden = false
                 } else {
                     moveResultLabel.isHidden = false
                     moveResultLabel.text = "Monster failed attack!"
@@ -253,6 +262,7 @@ class FightViewController: UIViewController {
             }
         } else {
             monsterAttackButton.isHidden = true
+            gameButton.isHidden = true
         }
     }
 }

@@ -45,6 +45,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A450030929A3ACEC00547882 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				A4879C752991412600477779 /* Main.storyboard */,
+				A4879C7A2991412700477779 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		A4879C632991412500477779 = {
 			isa = PBXGroup;
 			children = (
@@ -66,12 +75,11 @@
 			children = (
 				A4879C6F2991412600477779 /* AppDelegate.swift */,
 				A4879C712991412600477779 /* SceneDelegate.swift */,
+				A4879C782991412700477779 /* Assets.xcassets */,
+				A4879C7D2991412700477779 /* Info.plist */,
+				A450030929A3ACEC00547882 /* Storyboards */,
 				A4879C8E2997F5DB00477779 /* ViewControllers */,
 				A4879C8D2997F5C000477779 /* Models */,
-				A4879C752991412600477779 /* Main.storyboard */,
-				A4879C782991412700477779 /* Assets.xcassets */,
-				A4879C7A2991412700477779 /* LaunchScreen.storyboard */,
-				A4879C7D2991412700477779 /* Info.plist */,
 			);
 			path = PlayerVSMonsters;
 			sourceTree = "<group>";

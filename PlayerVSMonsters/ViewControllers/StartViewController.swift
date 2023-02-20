@@ -31,9 +31,9 @@ class StartViewController: UIViewController {
     
     private var playerModel = PlayerModel()
     private var model = Model ()
-    private var attackValue = 0
-    private var shieldValue = 0
-    private var healthValue = 0
+    private var attackValue = 1
+    private var shieldValue = 1
+    private var healthValue = 1
     
     // MARK: - Views
     
@@ -47,6 +47,7 @@ class StartViewController: UIViewController {
         setStartButton()
         setSliders(for: attackSlider, shieldSlider, healthSlider)
         setResultLabel()
+        setValue()
     }
     
     
@@ -56,7 +57,7 @@ class StartViewController: UIViewController {
         navigationItem.title = "Player creation"
     }
     
-    // MARK: - Setting label
+    // MARK: - Setting labels
     
     private func setResultLabel() {
         attackResultLabel.text = String(playerModel.attack)
@@ -127,11 +128,15 @@ class StartViewController: UIViewController {
         }
     }
     
-    @IBAction func sliderAction(_ sender: UISlider) {
+    private func setValue() {
         
         attackValue = Int(attackSlider.value)
         shieldValue = Int(shieldSlider.value)
         healthValue = Int(healthSlider.value)
+    }
+    
+    @IBAction func sliderAction(_ sender: UISlider) {
+        setValue()
         
         switch sender {
         case attackSlider:
@@ -142,7 +147,7 @@ class StartViewController: UIViewController {
             healthResultLabel.text = String(healthValue)
         }
     }
-
+    
     
     // MARK: - Prepare
     
@@ -154,7 +159,7 @@ class StartViewController: UIViewController {
         destination.attack = String(attackValue)
         destination.shield = String(shieldValue)
         destination.health = healthValue
-
+        
         if playerNameTextField.text == "" {
             destination.playerName = "Player"
         } else {

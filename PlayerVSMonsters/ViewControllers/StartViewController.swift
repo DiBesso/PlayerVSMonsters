@@ -12,16 +12,28 @@ class StartViewController: UIViewController {
     // MARK: - Outlets
     
     @IBOutlet weak var attackSlider: UISlider!
+    @IBOutlet weak var attackSliderLabel: UILabel!
+    @IBOutlet weak var attackResultLabel: UILabel!
+    
     @IBOutlet weak var shieldSlider: UISlider!
+    @IBOutlet weak var shieldSliderLabel: UILabel!
+    @IBOutlet weak var shieldResultLabel: UILabel!
+    
     @IBOutlet weak var healthSlider: UISlider!
+    @IBOutlet weak var healthSliderLabel: UILabel!
+    @IBOutlet weak var healthResultLabel: UILabel!
+    
     @IBOutlet weak var playerNameLabel: UILabel!
     @IBOutlet weak var startGameButton: UIButton!
     @IBOutlet weak var playerNameTextField: UITextField!
     
-    // MARK: - Properties
+    // MARK: - Private properties
     
-    var playerName = ""
-    
+    private var playerModel = PlayerModel()
+    private var model = Model ()
+    private var attackValue = 0
+    private var shieldValue = 0
+    private var healthValue = 0
     
     // MARK: - Views
     
@@ -33,6 +45,8 @@ class StartViewController: UIViewController {
         setPlayerNameTextField()
         setPlayerNameLabel()
         setStartButton()
+        setSliders(for: attackSlider, shieldSlider, healthSlider)
+        setResultLabel()
     }
     
     
@@ -43,6 +57,15 @@ class StartViewController: UIViewController {
     }
     
     // MARK: - Setting label
+    
+    private func setResultLabel() {
+        attackResultLabel.text = String(playerModel.attack)
+        attackResultLabel.textAlignment = .left
+        shieldResultLabel.text = String(playerModel.shield)
+        shieldResultLabel.textAlignment = .left
+        healthResultLabel.text = String(playerModel.health)
+        healthResultLabel.textAlignment = .left
+    }
     
     private func setPlayerNameLabel () {
         playerNameLabel.text = "Create a player"
@@ -64,12 +87,74 @@ class StartViewController: UIViewController {
     @IBAction func startGameAction(_ sender: Any) {
     }
     
+    // MARK: - Setting sliders
+    
+    private func setSliders(for sliders: UISlider...) {
+        
+        sliders.forEach {slider in
+            
+            switch slider {
+            case attackSlider:
+                attackSlider.maximumValue = 20
+                attackSlider.minimumValue = 1
+                attackSlider.value = Float(playerModel.attack)
+                attackSlider.backgroundColor = .lightGray
+                attackSlider.tintColor = .red
+                attackSlider.layer.cornerRadius = 15
+                attackSliderLabel.text = model.attackLabel
+                attackSliderLabel.textAlignment = .center
+                
+            case shieldSlider:
+                shieldSlider.minimumValue = 1
+                shieldSlider.maximumValue = 20
+                shieldSlider.value = Float(playerModel.shield)
+                shieldSlider.backgroundColor = .lightGray
+                shieldSlider.tintColor = .blue
+                shieldSlider.layer.cornerRadius = 15
+                shieldSliderLabel.text = model.shieldLabel
+                shieldSliderLabel.textAlignment = .center
+                
+            default:
+                healthSlider.minimumValue = 1
+                healthSlider.maximumValue = 20
+                healthSlider.value = Float(playerModel.health)
+                healthSlider.backgroundColor = .lightGray
+                healthSlider.tintColor = .green
+                healthSlider.layer.cornerRadius = 15
+                healthSliderLabel.text = model.healthLabel
+                healthSliderLabel.textAlignment = .center
+            }
+        }
+    }
+    
+    @IBAction func sliderAction(_ sender: UISlider) {
+        
+        attackValue = Int(attackSlider.value)
+        shieldValue = Int(shieldSlider.value)
+        healthValue = Int(healthSlider.value)
+        
+        switch sender {
+        case attackSlider:
+            attackResultLabel.text = String(attackValue)
+        case shieldSlider:
+            shieldResultLabel.text = String(shieldValue)
+        default:
+            healthResultLabel.text = String(healthValue)
+        }
+    }
+
+    
     // MARK: - Prepare
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "startToFightSegue" else { return }
         guard let destination = segue.destination as? FightViewController else { return }
         
+        
+        destination.attack = String(attackValue)
+        destination.shield = String(shieldValue)
+        destination.health = healthValue
+
         if playerNameTextField.text == "" {
             destination.playerName = "Player"
         } else {

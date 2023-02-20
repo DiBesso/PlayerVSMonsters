@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A44D6C6229A37B0A005E2CF3 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44D6C6129A37B0A005E2CF3 /* Model.swift */; };
 		A4879C702991412600477779 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4879C6F2991412600477779 /* AppDelegate.swift */; };
 		A4879C722991412600477779 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4879C712991412600477779 /* SceneDelegate.swift */; };
 		A4879C772991412600477779 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4879C752991412600477779 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A44D6C6129A37B0A005E2CF3 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		A4879C6C2991412600477779 /* PlayerVSMonsters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayerVSMonsters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4879C6F2991412600477779 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4879C712991412600477779 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 		A4879C8D2997F5C000477779 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A44D6C6129A37B0A005E2CF3 /* Model.swift */,
 				A4879C852991458D00477779 /* PlayerModel.swift */,
 				A4879C872991497700477779 /* MonsterModel.swift */,
 			);
@@ -163,6 +166,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A44D6C6229A37B0A005E2CF3 /* Model.swift in Sources */,
 				A4879C882991497700477779 /* MonsterModel.swift in Sources */,
 				A4879C8C2997F5AB00477779 /* StartViewController.swift in Sources */,
 				A4879C862991458D00477779 /* PlayerModel.swift in Sources */,

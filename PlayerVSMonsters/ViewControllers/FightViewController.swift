@@ -32,6 +32,9 @@ class FightViewController: UIViewController {
     
     // MARK: - Properties
     var playerName = ""
+    var attack = ""
+    var shield = ""
+    var health = 0
     var numberOfHealing = 0
     var maxHealth = 0
     
@@ -39,6 +42,7 @@ class FightViewController: UIViewController {
     
     private var player = PlayerModel()
     private var monster = MonsterModel()
+    private var model = Model ()
     
     
     // MARK: - View
@@ -54,7 +58,7 @@ class FightViewController: UIViewController {
         rollResultLabel.isHidden = true
         restartButton.isHidden = true
         monsterAttackButton.isHidden = true
-        maxHealth = player.health
+        maxHealth = health
     }
     
     
@@ -63,9 +67,9 @@ class FightViewController: UIViewController {
     private func setPlayerLabels() {
         
         playerNameLabel.text = playerName
-        playerAttackLabel.text = String(player.attack)
-        playerShieldLabel.text = String(player.shield)
-        playerHealthLabel.text = String(player.health)
+        playerAttackLabel.text = attack
+        playerShieldLabel.text = shield
+        playerHealthLabel.text = String(health)
     }
     
     private func setMonsterLabels() {
@@ -76,19 +80,19 @@ class FightViewController: UIViewController {
     }
     
     private func setCollectiveLabels() {
-        attackLabel.text = "Attack"
-        shieldLabel.text = "Shield"
-        healthLabel.text = "Health"
+        attackLabel.text = model.attackLabel
+        shieldLabel.text = model.shieldLabel
+        healthLabel.text = model.healthLabel
     }
     
     // MARK: - Setting Buttons
     
     private func healing() {
-        healingButton.titleLabel?.text = "Healing"
-        let health = maxHealth
-        let halfHealth = health / 2
-        player.health = player.health + halfHealth
-        playerHealthLabel.text = String(player.health)
+        healingButton.titleLabel?.text = model.healingButtonTitle
+        let allHealth = maxHealth
+        let halfHealth = allHealth / 2
+        health = health + halfHealth
+        playerHealthLabel.text = String(health)
     }
     
     @IBAction func healingButtonAction(_ sender: Any) {
@@ -117,7 +121,7 @@ class FightViewController: UIViewController {
     }
     
     private func setGameButton() {
-        gameButton.titleLabel?.text = "Player attack"
+        gameButton.titleLabel?.text = model.gameButtonTitle
     }
     
     
@@ -125,7 +129,7 @@ class FightViewController: UIViewController {
     
     private func playerAttack() {
         
-        if player.health > 0 {
+        if health > 0 {
             
             var modifier = player.attack - monster.shield + 1
             
@@ -202,8 +206,8 @@ class FightViewController: UIViewController {
                     rollResultLabel.isHidden = false
                     rollResultLabel.text = "Roll result is \(String(cube))"
                     if cube > 4 {
-                        player.health = player.health - monster.damage
-                        playerHealthLabel.text = String(player.health)
+                        health = health - monster.damage
+                        playerHealthLabel.text = String(health)
                         moveResultLabel.isHidden = false
                         moveResultLabel.text = "Monster attacked! Damage \(monster.damage)"
                         if player.health <= 0 {
@@ -228,11 +232,11 @@ class FightViewController: UIViewController {
                 rollResultLabel.isHidden = false
                 rollResultLabel.text = "Roll result is \(String(cube))"
                 if cube > 4 {
-                    player.health = player.health - monster.damage
-                    playerHealthLabel.text = String(player.health)
+                    health = health - monster.damage
+                    playerHealthLabel.text = String(health)
                     moveResultLabel.isHidden = false
                     moveResultLabel.text = "Monster attacked! Damage \(monster.damage)"
-                    if player.health <= 0 {
+                    if health <= 0 {
                         moveResultLabel.text = "Monster win!!!"
                         gameButton.isHidden = true
                         monsterAttackButton.isHidden = true

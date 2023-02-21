@@ -224,7 +224,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0T-34-Ivm">
                                 <rect key="frame" x="32" y="562.5" width="311" height="34.5"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Старт"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Start"/>
                                 <connections>
                                     <action selector="startGameAction:" destination="R2M-eU-qkd" eventType="touchUpInside" id="mmj-iw-KaG"/>
                                     <segue destination="BYZ-38-t0r" kind="presentation" identifier="startToFightSegue" modalPresentationStyle="fullScreen" id="MHg-5B-ehs"/>

@@ -129,8 +129,43 @@ class FightViewController: UIViewController {
         gameButton.titleLabel?.text = model.gameButtonTitle
     }
     
+    // MARK: - Func for player and monster attcak
+    
+    private func hiddingButtons() {
+        gameButton.isHidden = true
+        monsterAttackButton.isHidden = true
+    }
+    
     
     // MARK: - Player attcak
+    
+    private func playerSuccessAttack() {
+        monster.health = monster.health - player.damage
+        monsterHealthLabel.text = String(monster.health)
+        moveResultLabel.isHidden = false
+        moveResultLabel.text = "Succes! Damage \(player.damage)"
+    }
+    
+    private func playerVictoriousAttcak(){
+        moveResultLabel.text = "You win!!!"
+        gameButton.isHidden = true
+        monsterAttackButton.isHidden = true
+        restartButton.isHidden = false
+    }
+    
+    private func playerFailedAttack() {
+        moveResultLabel.isHidden = false
+        moveResultLabel.text = "Failed attack!"
+        gameButton.isHidden = true
+        monsterAttackButton.isHidden = false
+    }
+    
+    private func hiddingAndShowingButtonsInPlayerAttack() {
+        gameButton.isHidden = true
+        monsterAttackButton.isHidden = false
+    }
+    
+    
     
     private func playerAttack() {
         
@@ -145,24 +180,14 @@ class FightViewController: UIViewController {
                     rollResultLabel.isHidden = false
                     rollResultLabel.text = "Roll result is \(String(cube))"
                     if cube > 4 {
-                        monster.health = monster.health - player.damage
-                        monsterHealthLabel.text = String(monster.health)
-                        moveResultLabel.isHidden = false
-                        moveResultLabel.text = "Succes! Damage \(player.damage)"
+                        playerSuccessAttack()
                         if monster.health <= 0 {
-                            moveResultLabel.text = "You win!!!"
-                            gameButton.isHidden = true
-                            monsterAttackButton.isHidden = true
-                            restartButton.isHidden = false
+                            playerVictoriousAttcak()
                         } else {
-                            gameButton.isHidden = true
-                            monsterAttackButton.isHidden = false
+                            hiddingAndShowingButtonsInPlayerAttack()
                         }
                     } else {
-                        moveResultLabel.isHidden = false
-                        moveResultLabel.text = "Failed attack!"
-                        gameButton.isHidden = true
-                        monsterAttackButton.isHidden = false
+                        playerFailedAttack()
                     }
                 }
             } else {
@@ -171,37 +196,51 @@ class FightViewController: UIViewController {
                 rollResultLabel.isHidden = false
                 rollResultLabel.text = "Roll result is \(String(cube))"
                 if cube > 4 {
-                    monster.health = monster.health - player.damage
-                    monsterHealthLabel.text = String(monster.health)
-                    moveResultLabel.isHidden = false
-                    moveResultLabel.text = "Succes! Damage \(player.damage)"
+                    playerSuccessAttack()
                     if monster.health <= 0 {
-                        moveResultLabel.text = "You win!!!"
-                        gameButton.isHidden = true
-                        monsterAttackButton.isHidden = true
-                        restartButton.isHidden = false
+                        playerVictoriousAttcak()
                     } else {
-                        gameButton.isHidden = true
-                        monsterAttackButton.isHidden = false
+                        hiddingAndShowingButtonsInPlayerAttack()
                     }
                 } else {
-                    moveResultLabel.isHidden = false
-                    moveResultLabel.text = "Failed attack!"
-                    gameButton.isHidden = true
-                    monsterAttackButton.isHidden = false
+                    playerFailedAttack()
                 }
             }
         } else {
-            gameButton.isHidden = true
-            monsterAttackButton.isHidden = true
+            hiddingButtons()
         }
     }
     
     
     // MARK: - Monster attack
     
+    private func monsterSuccessAttack() {
+        health = health - monster.damage
+        playerHealthLabel.text = String(health)
+        moveResultLabel.isHidden = false
+        moveResultLabel.text = "Monster attacked! Damage \(monster.damage)"
+    }
+    
+    private func monsterVictoriousAttack() {
+        moveResultLabel.text = "Monster win!!!"
+        gameButton.isHidden = true
+        monsterAttackButton.isHidden = true
+        restartButton.isHidden = false
+    }
+    
+    private func monsterFailedAttack() {
+        moveResultLabel.isHidden = false
+        moveResultLabel.text = "Monster failed attack!"
+        monsterAttackButton.isHidden = true
+        gameButton.isHidden = false
+    }
+    
+    private func hiddingAndShowingButtonsInMonsterAttack() {
+        monsterAttackButton.isHidden = true
+        gameButton.isHidden = false
+    }
+    
     private func monsterAttack() {
-        
         
         if monster.health > 0 && health > 0 {
             
@@ -214,24 +253,14 @@ class FightViewController: UIViewController {
                     rollResultLabel.isHidden = false
                     rollResultLabel.text = "Roll result is \(String(cube))"
                     if cube > 4 {
-                        health = health - monster.damage
-                        playerHealthLabel.text = String(health)
-                        moveResultLabel.isHidden = false
-                        moveResultLabel.text = "Monster attacked! Damage \(monster.damage)"
+                        monsterSuccessAttack()
                         if health <= 0 {
-                            moveResultLabel.text = "Monster win!!!"
-                            gameButton.isHidden = true
-                            monsterAttackButton.isHidden = true
-                            restartButton.isHidden = false
+                            monsterVictoriousAttack()
                         } else {
-                            monsterAttackButton.isHidden = true
-                            gameButton.isHidden = false
+                            hiddingAndShowingButtonsInMonsterAttack()
                         }
                     } else {
-                        moveResultLabel.isHidden = false
-                        moveResultLabel.text = "Monster failed attack!"
-                        monsterAttackButton.isHidden = true
-                        gameButton.isHidden = false
+                        monsterFailedAttack()
                     }
                 }
             } else {
@@ -240,29 +269,18 @@ class FightViewController: UIViewController {
                 rollResultLabel.isHidden = false
                 rollResultLabel.text = "Roll result is \(String(cube))"
                 if cube > 4 {
-                    health = health - monster.damage
-                    playerHealthLabel.text = String(health)
-                    moveResultLabel.isHidden = false
-                    moveResultLabel.text = "Monster attacked! Damage \(monster.damage)"
+                    monsterSuccessAttack()
                     if health <= 0 {
-                        moveResultLabel.text = "Monster win!!!"
-                        gameButton.isHidden = true
-                        monsterAttackButton.isHidden = true
-                        restartButton.isHidden = false
+                        monsterVictoriousAttack()
                     } else {
-                        monsterAttackButton.isHidden = true
-                        gameButton.isHidden = false
+                        hiddingAndShowingButtonsInMonsterAttack()
                     }
                 } else {
-                    moveResultLabel.isHidden = false
-                    moveResultLabel.text = "Monster failed attack!"
-                    monsterAttackButton.isHidden = true
-                    gameButton.isHidden = false
+                    monsterFailedAttack()
                 }
             }
         } else {
-            monsterAttackButton.isHidden = true
-            gameButton.isHidden = true
+            hiddingButtons()
         }
     }
 }
